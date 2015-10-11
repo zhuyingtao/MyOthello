@@ -1,0 +1,33 @@
+mysql -uroot -pzyt
+
+CREATE DATABASE game;
+
+use game;
+
+CREATE TABLE user(
+	number		INT		AUTO_INCREMENT PRIMARY KEY ,			
+	id		VARCHAR(30)     NOT NULL ,
+	name		VARCHAR(30)	NOT NULL ,
+	password 	VARCHAR(30)	NOT NULL ,
+	sex		VARCHAR(2)	DEFAULT 'ÄÐ' ,
+	win             INT             DEFAULT '0',
+        lose		INT		DEFAULT '0',
+        draw		INT		DEFAULT '0',
+	score	        INT		DEFAULT '0'
+        
+) ;
+
+µÇÂ¼£º
+"SELECT id,password,name ,win,lose,draw,score,sex FROM user WHERE id LIKE ? AND password LIKE ?";
+
+×¢²á£º
+
+"INSERT INTO user(id,name,password,sex) VALUES (?,?,?,?)";
+"SELECT id FROM user WHERE id LIKE ? ";
+
+¸üÐÂ£º
+
+"SELECT win,lose,draw,score FROM user WHERE name LIKE ? ";
+"UPDATE user SET win=?,score=? WHERE name LIKE ? ";
+"UPDATE user SET lose=?,score=? WHERE name LIKE ? ";
+"UPDATE user SET draw=? WHERE name LIKE ? ";
